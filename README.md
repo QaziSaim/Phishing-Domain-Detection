@@ -42,8 +42,9 @@ Phishing stands for a fraudulent process, where an attacker tries to obtain sens
 
 2. **Domain Features:**  
    Phishing domains often have a short lifespan, and many lack proper registration details (WHOIS data). Analyzing domain age and registrar information can be key indicators in phishing detection.
+   
 
-3. **Use of IP Addresses in URLs:**  
+4. **Use of IP Addresses in URLs:**  
    Legitimate websites rarely use raw IP addresses in URLs, while phishing websites often do. Identifying this feature can improve detection accuracy.
 
 --------
