@@ -17,12 +17,12 @@ class CustomException(Exception):
     
     def __str__(self):
         return self.error_message
-
+ 9
 # if __name__ == "__main__":
 #     logging.info("Logging has started.")
 
 #     try:
-#         a=1/0
+#         a=1/0/54
 #     except Exception as E:
 #         logging.info('error has occured')
 #         raise CustomException(E,sys)

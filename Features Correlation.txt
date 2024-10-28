@@ -1,0 +1,12 @@
+Highly correlated features by using pearson correlation
+{'AbnormalExtFormActionR',
+ 'ExtMetaScriptLinkRT',
+ 'NumAmpersand',
+ 'PctExtResourceUrlsRT',
+ 'QueryLength',
+ 'SubdomainLevelRT',
+ 'UrlLengthRT'}
+
+No correlated features
+
+HttpsInHostname
