@@ -15,7 +15,7 @@ from sklearn.preprocessing import OrdinalEncoder # Feature Engineering audinal e
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer # Grouping the thing
 # from src.utils import save_object
-
+from sklearn.feature_selection import mutual_info_classification # for feature selection
 @dataclass
 class DataTransformationConfig:
     preprocessor_obj_file_path = os.path.join('artifacts','preprocessor.pkl')
