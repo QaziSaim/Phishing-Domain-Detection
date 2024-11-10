@@ -50,5 +50,42 @@ Phishing stands for a fraudulent process, where an attacker tries to obtain sens
 --------
 
 # **Result**
+I have selected recall as the primary evaluation metric for the phishing domain detection model. And after removing the overfitted models which have recall, precision, f1 scores for train as 100%, we get the final list:
+| Sl. No. | Classification Model      |   Recall Train (%) |   Recall Test (%) |
+|:--------|:--------------------------|---------------:|--------------:|
+|    1    | Decision Tree tuned       |       95.24  |      95.56 |
+|    2    | Decesion Tree tuned       |       97.14  |      97.78 |
+|    3    | Naive Bayes               |       94.28 |      97.78 |
+|    4    | Naive Bayes tuned         |       94.28 |      97.78 |
 
-# Update Soon
+## Conclusion
+
+In the Iris ishing domain detection project, the tuned decesion tree model has been selected as the final prediction model. The project aimed to detect the phisihing domains base on input url After extensive data exploration, preprocessing, and model evaluation, the following conclusions can be drawn:
+
+1. **Data Exploration:** Through a thorough examination of the dataset, we gained insights into the characteristics and distributions of features. We found that phishing domain url distinct features compared to the legitimate urls.
+
+2. **Data Preprocessing:** Data preprocessing steps, including handling missing values and encoding categorical variables, were performed to prepare the dataset for modeling.
+
+3. **Model Selection:** After experimenting with various machine learning models, tuned Decesion tree was choosen as the final model due to its simplicity, interpretability, and good performance in classifying phishing or legitimate url.
+
+4. **Model Training and Evaluation:** The decesion tree (tuned) model was trained on the training dataset and evaluated using appropriate metrics. The model demonstrated satisfactory accuracy and precision in classifying Iris species.
+
+5. **Challenges and Future Work:** The project encountered challenges related to feature engineering and feature selection and model fine-tuning. Future work may involve exploring more advanced modeling techniques to improve classification accuracy further.
+
+6. **Practical Application:** The phishing domain detection model can be applied in real-world scenarios, such as cyber securtiy and network security, to automate the identification of phishing url based on distinctive properties.
+
+In conclusion, the phishing domain detection  project successfully employed decesion tree (tuned) as the final prediction model to classify Iris species. The project's outcomes have practical implications in the field of botany and offer valuable insights into feature importance for species differentiation. Further refinements and enhancements may lead to even more accurate and reliable classification models in the future.
+
+---
+
+## Author
+
+- [Kazi Sahim](https://www.linkedin.com/in/sahim-kazi-1406431b9/)
+
+---
+
+## Reference
+The notebook can be seen as a reference
+- [EDA](https://github.com/QaziSaim/Phishing-Domain-Detection/blob/main/notebook/PhishingClassifierProject.ipynb)
+- [Model Training](https://github.com/QaziSaim/Phishing-Domain-Detection/blob/main/notebook/ModelBuilding.ipynb)
+
