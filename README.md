@@ -7,7 +7,6 @@
 
 #### Objective
 
-
 #### The main goal is to predict whether the domains are real or malicious.
 
 #### **Key Project Details:**
