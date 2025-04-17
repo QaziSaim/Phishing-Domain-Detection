@@ -11,6 +11,7 @@
 
 #### **Key Project Details:**
 
+
 1. **URL Structure Analysis:**  
    Phishing URLs often contain abnormal patterns such as excessive use of special characters (e.g., ‘@’, ‘//’, or ‘-’), suspicious domain names, or long and complex URLs. These features can help in identifying malicious websites.
 
