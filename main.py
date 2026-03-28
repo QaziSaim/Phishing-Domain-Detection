@@ -3,16 +3,18 @@ import numpy as np
 import joblib
 import re
 from urllib.parse import urlparse
-from sklearn.preprocessing import StandardScaler
-import joblib
-# Load model
+
+# ---------------- CONFIG ----------------
+st.set_page_config(
+    page_title="Phishing URL Detector",
+    page_icon="🔍",
+    layout="centered"
+)
+
+# ---------------- LOAD MODEL ----------------
 rf_model = joblib.load('models/final_rf.joblib')
 
-# If you used scaler (optional)
-# scaler = joblib.load('scaler.pkl')
-
 # ---------------- FEATURE FUNCTIONS ----------------
-
 def extract_features(url):
     try:
         parsed = urlparse(url)
@@ -21,7 +23,6 @@ def extract_features(url):
         hostname_length = len(parsed.netloc)
         path_length = len(parsed.path)
 
-        # First directory length
         path_parts = [p for p in parsed.path.split('/') if p]
         fd_length = len(path_parts[0]) if len(path_parts) > 0 else 0
 
@@ -38,14 +39,11 @@ def extract_features(url):
         count_digits = sum(c.isdigit() for c in url)
         count_letters = sum(c.isalpha() for c in url)
 
-        # Directory count
         count_dir = len(path_parts)
 
-        # IP check
         ip_pattern = r'^\d{1,3}(\.\d{1,3}){3}$'
         use_of_ip = -1 if re.match(ip_pattern, parsed.netloc) else 1
 
-        # Short URL check
         shorteners = {"bit.ly", "tinyurl.com", "t.co", "goo.gl", "ow.ly"}
         short_url = -1 if parsed.netloc in shorteners else 1
 
@@ -56,33 +54,67 @@ def extract_features(url):
             count_digits, count_letters, count_dir,
             use_of_ip, short_url
         ]
+
         return np.array(features).reshape(1, -1)
-        
 
     except:
         return None
 
-# ---------------- STREAMLIT UI ----------------
 
-st.title("🔍 Phishing URL Detection")
+# ---------------- UI ----------------
+st.markdown("<h1 style='text-align: center;'>🔍 Phishing URL Detector</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>Enter a URL to check if it is <b>Phishing</b> or <b>Legitimate</b></p>", unsafe_allow_html=True)
 
-url = st.text_input("Enter URL")
+st.divider()
 
-if st.button("Check URL"):
+# Example URLs
+st.subheader("📌 Try Example URLs")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("Phishing Example"):
+        st.session_state.url = "http://secure-login-paypal.com.verify-user-account.ru/login"
+
+with col2:
+    if st.button("Legitimate Example"):
+        st.session_state.url = "https://www.google.com"
+
+# Input box
+url = st.text_input("🌐 Enter URL", value=st.session_state.get("url", ""))
+
+# ---------------- PREDICTION ----------------
+if st.button("🚀 Check URL"):
     if url:
         features = extract_features(url)
 
         if features is not None:
-            # If scaler used
-            # features = scaler.transform(features)
-
             prediction = rf_model.predict(features)
+
+            # Probability (if available)
+            if hasattr(rf_model, "predict_proba"):
+                prob = rf_model.predict_proba(features)[0][1]
+            else:
+                prob = None
+
+            st.divider()
 
             if prediction[0] == 1:
                 st.error("🚨 Phishing URL Detected!")
             else:
                 st.success("✅ Legitimate URL")
+
+            if prob is not None:
+                st.info(f"Confidence Score: {prob:.2f}")
+
         else:
-            st.warning("Invalid URL")
+            st.warning("⚠️ Invalid URL")
     else:
-        st.warning("Please enter a URL")
+        st.warning("⚠️ Please enter a URL")
+
+# ---------------- FOOTER ----------------
+st.divider()
+st.markdown(
+    "<p style='text-align: center; color: grey;'>© 2026 Saim Qazi | Phishing Detection System</p>",
+    unsafe_allow_html=True
+)
