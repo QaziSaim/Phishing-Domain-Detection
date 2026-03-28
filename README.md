@@ -168,6 +168,3 @@ Below is a screenshot of the deployed application:
 
 This project is for educational and research purposes.
 
-
-✅ Write **LinkedIn post for this project**
-✅ Help you **deploy this project online** 🚀
