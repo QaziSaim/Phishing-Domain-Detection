@@ -105,8 +105,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Here’s a clean section you can **add to your README.md** 👇
-
 ---
 
 ## 🌐 Deployment
@@ -132,7 +130,7 @@ Below is a screenshot of the deployed application:
 
 1. Open the deployed link
 2. Enter any URL
-3. Click on **“Check URL”**
+3. Click on **“https://phishing-domain-detection-rg6tnphgc2ygskbx8xbehq.streamlit.app/”**
 4. The model will predict whether the URL is:
 
    * 🚨 Phishing
