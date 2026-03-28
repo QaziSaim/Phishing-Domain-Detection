@@ -122,9 +122,9 @@ The project has been successfully deployed on **Streamlit Cloud** using Streamli
 
 Below is a screenshot of the deployed application:
 
-![](Screenshot 2026-03-28 080712.png)
-![](Screenshot 2026-03-28 080726.png)
-![](Screenshot 2026-03-28 080743.png)
+![Alt Text](Screenshot 2026-03-28 080712.png)
+![Alt Text](Screenshot 2026-03-28 080726.png)
+![Alt Text](Screenshot 2026-03-28 080743.png)
 
 ---
 
